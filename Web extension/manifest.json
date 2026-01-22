@@ -1,45 +1,22 @@
 {
   "manifest_version": 3,
-  "name": "Focus Timer & Blocker",
+  "name": "MovieBox Focus Blocker",
   "version": "1.0",
-  "description": "Timer with MovieBox blocking and 24-hour reset",
-  "permissions": [
-    "storage",
-    "alarms",
-    "tabs",
-    "notifications"
-  ],
-  "host_permissions": [
-    "*://movieboxpro.app/*",
-    "*://*.movieboxpro.app/*",
-    "*://moviebox.plus/*",
-    "*://*.moviebox.plus/*",
-    "*://mbxapp.com/*",
-    "*://*.mbxapp.com/*",
-    "*://watchmoviebox.net/*",
-    "*://*.watchmoviebox.net/*"
-  ],
+  "description": "Blocks MovieBox.ph after 5 minutes of watching and resets daily",
+  "permissions": ["storage", "notifications", "tabs", "activeTab"],
   "background": {
     "service_worker": "background.js"
   },
+  "action": {
+    "default_popup": "popup.html"
+  },
   "content_scripts": [
     {
-      "matches": [
-        "*://movieboxpro.app/*",
-        "*://*.movieboxpro.app/*",
-        "*://moviebox.plus/*",
-        "*://*.moviebox.plus/*",
-        "*://mbxapp.com/*",
-        "*://*.mbxapp.com/*",
-        "*://watchmoviebox.net/*",
-        "*://*.watchmoviebox.net/*"
-      ],
+      "matches": ["*://moviebox.ph/*"],
       "js": ["content.js"],
-      "run_at": "document_start"
+      "run_at": "document_idle"
     }
   ],
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "Focus Timer"
-  }
+  "host_permissions": ["*://moviebox.ph/*"]
 }
+

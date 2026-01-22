@@ -1,32 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Focus Timer</title>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      width: 220px;
-      padding: 12px;
-      margin: 0;
-      box-sizing: border-box;
-    }
-
-    h3 {
-      margin-top: 0;
-      font-size: 16px;
-    }
-
-    p {
-      font-size: 13px;
-      margin: 8px 0 0;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>MovieBox Timer</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h3>Focus Timer</h3>
-  <p>Stay focused 🚀</p>
+  <h3>MovieBox Focus Timer</h3>
+  <p>Time Remaining: <span id="timeDisplay">05:00</span></p>
+   <div class="status" id="status">Status: Ready</div>
+  <button id="startBtn">Start Timer</button>
+    <button id="stopBtn">Stop Timer</button>
+    <button id="resetBtn">Reset Daily Timer</button>
+  </div>
+   <div class="info">
+    <p>⚠️ Block activates after 5 minutes</p>
+    <p>🔄 Resets automatically every 24h</p>
+  </div>
+  <script src="popup.js"></script>
 </body>
 </html>
