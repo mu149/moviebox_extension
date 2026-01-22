@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Focus Timer & Blocker",
+  "version": "1.0",
+  "description": "Timer with MovieBox blocking and 24-hour reset",
+  "permissions": [
+    "storage",
+    "alarms",
+    "tabs",
+    "notifications"
+  ],
+  "host_permissions": [
+    "*://movieboxpro.app/*",
+    "*://*.movieboxpro.app/*",
+    "*://moviebox.plus/*",
+    "*://*.moviebox.plus/*",
+    "*://mbxapp.com/*",
+    "*://*.mbxapp.com/*",
+    "*://watchmoviebox.net/*",
+    "*://*.watchmoviebox.net/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://movieboxpro.app/*",
+        "*://*.movieboxpro.app/*",
+        "*://moviebox.plus/*",
+        "*://*.moviebox.plus/*",
+        "*://mbxapp.com/*",
+        "*://*.mbxapp.com/*",
+        "*://watchmoviebox.net/*",
+        "*://*.watchmoviebox.net/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Focus Timer"
+  }
+}
